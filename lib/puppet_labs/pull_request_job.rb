@@ -31,6 +31,17 @@ class PullRequestJob
   end
 
   ##
+  # card_search_id is used to identify a Trello card by the repository and pull
+  # request number.  This handles the situation where  card title is renamed.
+  #
+  # @return [String] representing the pull request identity as the card title
+  # prefix.
+  def card_id
+    pr = pull_request
+    "(PR #{pr.repo_name}/#{pr.number})"
+  end
+
+  ##
   # store_settings copies the TRELLO API information out of the environment and
   # into the instance so it is stored along with the job.  This allows the job
   # to execute in a self contained manner.
