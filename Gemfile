@@ -15,6 +15,7 @@ group :development do
   gem 'watchr'
   gem 'wirb'
   gem 'irbtools'
+  gem 'terminal-notifier'
   gem 'pry'
   gem 'pry-debugger'
   gem 'yard'

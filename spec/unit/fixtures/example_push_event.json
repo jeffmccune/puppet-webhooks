@@ -1,0 +1,118 @@
+{
+  "hook_callpath": "new",
+  "pusher": {
+    "name": "jeffmccune",
+    "email": "jeff@puppetlabs.com"
+  },
+  "repository": {
+    "name": "puppet-webhooks",
+    "has_wiki": true,
+    "size": 372,
+    "created_at": "2012-12-05T22:01:21-08:00",
+    "private": false,
+    "watchers": 0,
+    "url": "https://github.com/jeffmccune/puppet-webhooks",
+    "fork": true,
+    "language": "Ruby",
+    "id": 7030723,
+    "pushed_at": "2013-01-20T18:08:14-08:00",
+    "open_issues": 0,
+    "has_downloads": true,
+    "has_issues": false,
+    "organization": "puppetlabs",
+    "forks": 0,
+    "stargazers": 0,
+    "description": "Sinatra service for GitHub WebHooks",
+    "owner": {
+      "name": "jeffmccune",
+      "email": "jeff@puppetlabs.com"
+    }
+  },
+  "forced": false,
+  "after": "779781b278b91115a581d601e51ffa126188c64f",
+  "head_commit": {
+    "added": [
+
+    ],
+    "modified": [
+      "README.md"
+    ],
+    "author": {
+      "name": "Jeff McCune",
+      "username": "jeffmccune",
+      "email": "jeff@puppetlabs.com"
+    },
+    "removed": [
+
+    ],
+    "timestamp": "2013-01-20T18:08:03-08:00",
+    "url": "https://github.com/jeffmccune/puppet-webhooks/commit/779781b278b91115a581d601e51ffa126188c64f",
+    "id": "779781b278b91115a581d601e51ffa126188c64f",
+    "distinct": true,
+    "message": "Merge branch 'test_pull_1'\n\n* test_pull_1:\n  Minor README update to test pull request events",
+    "committer": {
+      "name": "Jeff McCune",
+      "username": "jeffmccune",
+      "email": "jeff@puppetlabs.com"
+    }
+  },
+  "deleted": false,
+  "commits": [
+    {
+      "added": [
+
+      ],
+      "modified": [
+        "README.md"
+      ],
+      "author": {
+        "name": "Jeff McCune",
+        "username": "jeffmccune",
+        "email": "jeff@puppetlabs.com"
+      },
+      "removed": [
+
+      ],
+      "timestamp": "2013-01-20T18:03:59-08:00",
+      "url": "https://github.com/jeffmccune/puppet-webhooks/commit/b51e6209638219c670300b4dfa0034088db3fcd5",
+      "id": "b51e6209638219c670300b4dfa0034088db3fcd5",
+      "distinct": false,
+      "message": "Minor README update to test pull request events",
+      "committer": {
+        "name": "Jeff McCune",
+        "username": "jeffmccune",
+        "email": "jeff@puppetlabs.com"
+      }
+    },
+    {
+      "added": [
+
+      ],
+      "modified": [
+        "README.md"
+      ],
+      "author": {
+        "name": "Jeff McCune",
+        "username": "jeffmccune",
+        "email": "jeff@puppetlabs.com"
+      },
+      "removed": [
+
+      ],
+      "timestamp": "2013-01-20T18:08:03-08:00",
+      "url": "https://github.com/jeffmccune/puppet-webhooks/commit/779781b278b91115a581d601e51ffa126188c64f",
+      "id": "779781b278b91115a581d601e51ffa126188c64f",
+      "distinct": true,
+      "message": "Merge branch 'test_pull_1'\n\n* test_pull_1:\n  Minor README update to test pull request events",
+      "committer": {
+        "name": "Jeff McCune",
+        "username": "jeffmccune",
+        "email": "jeff@puppetlabs.com"
+      }
+    }
+  ],
+  "ref": "refs/heads/master",
+  "compare": "https://github.com/jeffmccune/puppet-webhooks/compare/e6e95ae5b19e...779781b278b9",
+  "before": "e6e95ae5b19e85092d65f6d53e0c1efc41a88e8c",
+  "created": false
+}

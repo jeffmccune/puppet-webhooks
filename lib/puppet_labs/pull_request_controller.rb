@@ -7,10 +7,13 @@ class PullRequestController < Controller
   ACCEPTED = 202
   OK = 200
 
-  attr_reader :pull_request,
-    :request,
-    :logger
+  attr_reader :pull_request
 
+  ##
+  # initialize the instance variables for the PullRequestController
+  #
+  # @option options [Hash] :pull_request The GitHub pull request data stored in
+  # a Hash.
   def initialize(options = {})
     super(options)
     if pull_request = options[:pull_request]
@@ -21,10 +24,11 @@ class PullRequestController < Controller
   ##
   # run processes the pull request and queues up a pull request job.
   #
-  # @return [Array] containing the Sinatra route style [status, headers_hsh, body_hsh]
+  # @return [Array] containing the Sinatra route style [status, headers_hsh,
+  # body_hsh]
   def run
     case pull_request.action
-    when "opened"
+    when "opened", "closed"
       job = PuppetLabs::PullRequestJob.new
       job.pull_request = pull_request
       delayed_job = job.queue

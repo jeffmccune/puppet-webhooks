@@ -123,14 +123,9 @@ describe 'PuppetLabs::PullRequestApp' do
           PuppetLabs::PullRequestJob.stub(:new).and_return(fake_job)
         end
 
-        it "responds with 200" do
+        it "responds with 202" do
           post route, params, env
-          last_response.should have_status 200
-        end
-
-        it "Says 'Action has been ignored.' in the response body." do
-          post route, params, env
-          JSON.load(last_response.body)['message'].should == 'Action has been ignored.'
+          last_response.should have_status 202
         end
       end
     end
