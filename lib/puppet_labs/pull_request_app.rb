@@ -238,7 +238,11 @@ module PuppetLabs
     post '/event/github/?' do
       payload = payload()
 
-      controller_options = { :route => self, :request => request }
+      controller_options = {
+        :route => self,
+        :request => request,
+        :logger => logger,
+      }
       gh_controller = GithubController.new(controller_options)
 
       if event_controller = gh_controller.event_controller
