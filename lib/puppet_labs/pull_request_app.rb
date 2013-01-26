@@ -1,6 +1,7 @@
 require 'json'
 require 'time'
 require 'sinatra/base'
+require 'active_support/core_ext'
 require 'sinatra/activerecord'
 require 'puppet_labs/pull_request'
 require 'puppet_labs/pull_request_job'
@@ -175,7 +176,8 @@ module PuppetLabs
     configure do
       disable :show_exceptions
       enable :logging
-      Delayed::Worker.max_attempts = 3
+      Delayed::Worker.max_attempts = 5
+      Delayed::Worker.max_run_time = 10.minutes
     end
 
     before '/event/*' do
