@@ -24,12 +24,6 @@ module PuppetLabs
 
     class UnauthenticatedError < StandardError; end
 
-    # logger provides a logger for the configuration of Delayed Job and other
-    # libraries
-    def self.logger
-      @logger ||= Logger.new(STDERR)
-    end
-
     module AppHelpers
       def logger
         @logger ||= Logger.new(STDERR)
@@ -174,7 +168,8 @@ module PuppetLabs
     helpers AppHelpers
 
     configure :production do
-      ActiveRecord::Base.logger.level = Logger::INFO
+      ActiveRecord::Base.logger = Logger.new(STDERR, Logger::NOTICE)
+      Delayed::Worker.logger = Logger.new(STDERR, Logger::INFO)
       Delayed::Backend::ActiveRecord::Job.send(:include, Delayed::Workless::Scaler)
       Delayed::Job.scaler = :heroku_cedar
     end
@@ -184,7 +179,6 @@ module PuppetLabs
       enable :logging
       Delayed::Worker.max_attempts = 5
       Delayed::Worker.max_run_time = 10.minutes
-      Delayed::Worker.logger = logger
     end
 
     before '/event/*' do

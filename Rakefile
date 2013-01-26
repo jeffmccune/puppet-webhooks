@@ -30,19 +30,17 @@ task :environment do
   # The rest of the libraries come after workless
   require 'puppet_labs/pull_request_job'
   require 'active_record'
+  require 'active_support/core_ext'
   require 'pg'
   require 'logger'
   require 'erb'
 
   Delayed::Worker.destroy_failed_jobs = false
-  Delayed::Worker.max_attempts = 3
   Delayed::Backend::ActiveRecord::Job.send(:include, Delayed::Workless::Scaler)
+  Delayed::Worker.max_attempts = 5
+  Delayed::Worker.max_run_time = 10.minutes
+  Delayed::Worker.logger = Logger.new(STDERR, Logger::INFO)
   Delayed::Job.scaler = :heroku_cedar
-
-  logger = ActiveSupport::BufferedLogger.new(
-    File.join(File.dirname(__FILE__), '/log', "#{ENV['RACK_ENV']}_delayed_jobs.log"), Logger::INFO
-  )
-  Delayed::Worker.logger = logger
   dbconfig = YAML.load(ERB.new(File.read('config/database.yml')).result)
   ActiveRecord::Base.establish_connection(dbconfig[ENV['RACK_ENV']])
 end
