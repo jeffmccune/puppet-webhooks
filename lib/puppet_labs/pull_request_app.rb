@@ -24,6 +24,12 @@ module PuppetLabs
 
     class UnauthenticatedError < StandardError; end
 
+    # logger provides a logger for the configuration of Delayed Job and other
+    # libraries
+    def self.logger
+      @logger ||= Logger.new(STDERR)
+    end
+
     module AppHelpers
       def logger
         @logger ||= Logger.new(STDERR)
@@ -178,6 +184,7 @@ module PuppetLabs
       enable :logging
       Delayed::Worker.max_attempts = 5
       Delayed::Worker.max_run_time = 10.minutes
+      Delayed::Worker.logger = logger
     end
 
     before '/event/*' do
