@@ -9,6 +9,8 @@ gem 'octokit' # github
 gem 'json'
 
 gem 'sinatra-activerecord'
+gem 'delayed_job'
+gem 'delayed_job_data_mapper'
 gem 'delayed_job_active_record'
 gem 'workless', '~> 1.1.1'
 gem 'business_time'
