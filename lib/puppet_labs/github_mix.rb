@@ -7,7 +7,14 @@ module GithubMix
   end
 
   def author_name
-    github.account(author)['name']
+    account = author
+    if name = github.account(account)['name']
+      STDERR.puts "FIXME XXX Found name: #{name}"
+      name
+    else
+      STDERR.puts "FIXME XXX Did not find name, using account: #{account}"
+      account
+    end
   end
 
   def author_email
