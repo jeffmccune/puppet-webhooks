@@ -7,7 +7,8 @@ module GithubMix
   end
 
   def author_name
-    github.account(author)['name']
+    account = author
+    github.account(account)['name'] || account
   end
 
   def author_email
