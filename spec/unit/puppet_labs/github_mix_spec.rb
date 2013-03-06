@@ -39,4 +39,22 @@ describe "PuppetLabs::GithubMix mixin" do
       subject.author_html_url.should == 'https://github.com/jeffmccune'
     end
   end
+
+  context 'incomplete account information' do
+    let(:account) do
+      {
+        'html_url' => 'https://github.com/jeffmccune',
+      }
+    end
+    let(:github) do
+      github = double('GithubAPI', :account => account)
+    end
+    before :each do
+      subject.stub(:github).and_return(github)
+    end
+
+    it 'uses the account name if the user name is not defined' do
+      subject.author_name.should == 'jeffmccune'
+    end
+  end
 end
