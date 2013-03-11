@@ -19,7 +19,7 @@ This project performs a job or jobs when a pull request event occurs on
    contains a comma separated list of board ID's.
  * [✓] Set the card due date to 2 PM next business day when a card is created
    if `TRELLO_SET_TARGET_RESPONSE_TIME=true`.
- * [ ] Copy a comment to the card when a comment is added to the pull request.
+ * [✓] Copy a comment to the card when a comment is added to the pull request.
 
 [web-service-hook]: https://github.com/github/github-services/blob/master/services/web.rb
 
