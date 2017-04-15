@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<head>
+  <title>Completed Card Summary</title>
+</head>
+
+<body>
+  <h1>Completed Card Summary</h1>
+  <ul id="completedCards"></ul>
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+
+  <script>
+  </script>
+
+  <script>
+    $(document).ready(function(){
+      var card_list_items = [];
+      var data = {
+        card1: {
+          title: "Title 1",
+          summary: "Summary 1.",
+        },
+        card2: {
+          title: "Title 2",
+          summary: "Summary 2.",
+        },
+      }
+
+      /* Example of how to get JSON from the App's API
+      $.getJSON("http://servername:10000/_vti_bin/webservice/service1.svc/getListTitle",
+      {
+        username: "a",
+        password: "b",
+        list: "calendar",
+      },
+      function(data) {
+        alert(1);
+        // and the rest
+      }
+      )
+      */
+
+      // Iterate over all of the items in data.  i is the hash key, card is the
+      // value
+      $.each(data, function(i, card) {
+        card_list_items.push('<li><a href="' + card.url + '">(' + card.title + ') ' + card.summary + "<\/a><\/li>");
+      });
+
+      // Update the DOM once.
+      $('#completedCards').append( card_list_items.join('') );
+
+    });
+  </script>
+
+</body>
+</html>
